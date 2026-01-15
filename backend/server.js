@@ -75,6 +75,10 @@ const seedLeadsIfEmpty = async () => {
  /* ------------------------------------------------------------------ */
 
 // GET /api/leads - search, filter, sort, pagination
+app.get("/", (req, res) => {
+  res.send("🚀 Mini CRM Backend is running");
+});
+
 app.get('/api/leads', async (req, res) => {
   try {
     const {
