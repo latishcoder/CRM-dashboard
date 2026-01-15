@@ -79,10 +79,10 @@ async function seedDatabase() {
 }
 
 seedDatabase();
-```
-
-// **4. `.env`**
 // ```
+
+// // **4. `.env`**
+// // ```
 // MONGODB_URI="mongodb+srv://latishsalunkhe8_db_user:latishsalunkhe8_db_user@cluster0.s7wygul.mongodb.net/?appName=Cluster0"
 // PORT=5000
 // ```
