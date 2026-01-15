@@ -10,7 +10,7 @@ const AnalyticsCards = () => {
   });
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/analytics")
+    fetch(`${import.meta.env.VITE_API_BASE}/api/analytics`)
       .then((res) => res.json())
       .then((data) => setStats(data))
       .catch(console.error);
