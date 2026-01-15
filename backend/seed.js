@@ -81,14 +81,14 @@ async function seedDatabase() {
 seedDatabase();
 ```
 
-**4. `.env`**
-```
-MONGODB_URI=your_mongodb_atlas_connection_string
-PORT=5000
-```
+// **4. `.env`**
+// ```
+// MONGODB_URI="mongodb+srv://latishsalunkhe8_db_user:latishsalunkhe8_db_user@cluster0.s7wygul.mongodb.net/?appName=Cluster0"
+// PORT=5000
+// ```
 
-**5. `.gitignore`**
-```
-node_modules
-.env
-.DS_Store
+// **5. `.gitignore`**
+// ```
+// node_modules
+// .env
+// .DS_Store
