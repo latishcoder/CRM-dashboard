@@ -8,21 +8,32 @@ const LoginScreen = ({ onLogin }) => {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e) => {
+  const API_BASE = import.meta.env.VITE_API_BASE;
+
+  const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
-      if (
-        credentials.email === "demo@crm.com" &&
-        credentials.password === "demo123"
-      ) {
-        onLogin({ email: credentials.email, name: "Demo User" });
-      } else {
-        alert("Invalid credentials");
+    try {
+      const res = await fetch(`${API_BASE}/api/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      });
+
+      if (!res.ok) {
+        throw new Error("Invalid credentials");
       }
+
+      const data = await res.json();
+      onLogin(data.user);
+    } catch (error) {
+      alert("Invalid email or password");
+    } finally {
       setLoading(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -45,6 +56,7 @@ const LoginScreen = ({ onLogin }) => {
             }
             className="w-full px-4 py-3 border rounded-lg"
             placeholder="Email"
+            required
           />
 
           <input
@@ -55,6 +67,7 @@ const LoginScreen = ({ onLogin }) => {
             }
             className="w-full px-4 py-3 border rounded-lg"
             placeholder="Password"
+            required
           />
 
           <button

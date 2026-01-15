@@ -8,7 +8,11 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://mini-crm-frontend.onrender.com"
+  ]
+}));
 app.use(express.json());
 
 // MongoDB Connection
