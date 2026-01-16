@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_BASE;
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const fetchLeads = async ({
   page = 1,
@@ -13,13 +13,15 @@ export const fetchLeads = async ({
     search,
     stage,
     source,
-  });
+  }).toString();
 
-  const response = await fetch(`${API_URL}?${params}`);
+  const response = await fetch(
+    `${API_URL}/api/leads?${params}`
+  );
 
   if (!response.ok) {
     throw new Error("Failed to fetch leads");
   }
 
-  return response.json();
+  return await response.json();
 };
