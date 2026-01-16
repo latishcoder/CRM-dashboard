@@ -12,7 +12,7 @@ app.use(cors({
   origin: [
         "http://localhost:5173",
     "http://localhost:5000",
-    "https://mini-crm-frontend.onrender.com"
+    "https://crm-dashboard-frontend.onrender.com"
   ],
   credentials: true
 }));
